@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+echo "Initializing commit"
+
+# Declaring an array
+declare -a files
+
+# Adding all positional parameters
+files=("$@")
+
+# Calculating number of files to pass to git add
+size="$(($# - 1))"
+
+echo
+
+git add "${files[@]:1:size}"
+
+if [[ "$2" == "." ]]; then
+    echo "Adding all files"
+else
+    echo "Adding files: ${files[@]:1:size}"
+fi
+echo
+
+git commit -m "$1"
+
+git push origin "$(git symbolic-ref --short HEAD)"
