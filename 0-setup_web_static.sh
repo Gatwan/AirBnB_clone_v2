@@ -6,7 +6,7 @@ sudo service nginx start
 
 sudo mkdir -p /data/web_static/shared/
 sudo mkdir -p /data/web_static/releases/test/
-echo "Hey I Found You!" > /data/web_static/releases/test/index.html
+echo -e "Hey I Found You!" | sudo tee /data/web_static/releases/test/index.html
 
 ln -sf /data/web_static/releases/test/ /data/web_static/current
 sudo chown -R ubuntu:ubuntu /data/
