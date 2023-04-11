@@ -13,14 +13,10 @@ def do_deploy(archive_path):
 
     put(archive_path, '/tmp')
     run('mkdir -p /data/web_static/releases/{}'.format(folder_extract))
-    run('tar -xzf /tmp/{} -C
-        /data/web_static/releases/{}'.format(file_name, folder_extract))
+    run('tar -xzf /tmp/{} -C /data/web_static/releases/{}'.format(file_name, folder_extract))
 
     run('rm /tmp/{}'.format(file_name))
-    run('mv -f /data/web_static/releases/{}/web_static/*
-        /data/web_static/releases/{}'.format(folder_extract, folder_extract))
-    run('rm -rf /data/web_static/releases/{}/web_static'
-        .format(folder_extract))
+    run('mv -f /data/web_static/releases/{}/web_static/* /data/web_static/releases/{}'.format(folder_extract, folder_extract))
+    run('rm -rf /data/web_static/releases/{}/web_static'.format(folder_extract))
     run('rm -rf /data/web_static/current')
-    run('ln -s /data/web_static/releases/{}/
-        /data/web_static/current'.format(folder_extract))
+    run('ln -s /data/web_static/releases/{}/ /data/web_static/current'.format(folder_extract))
