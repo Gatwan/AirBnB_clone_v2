@@ -8,6 +8,7 @@ env.hosts = ['18.206.202.177', '100.25.31.46']
 
 @with_settings(warn_only=True)
 def do_deploy(archive_path):
+    """ Deploys """
     file_name = archive_path.split('/')[-1]
     folder_extract = file_name.replace(".tgz", "")
 
