@@ -44,5 +44,11 @@ def number_template(n):
     return render_template('5-number.html', number=n)
 
 
+@app.route('/number_odd_or_even/<int:n>')
+def number_odd_or_even(n):
+    """Function called with /number_odd_or_even/<n> route"""
+    return render_template('6-number_odd_or_even.html', number=n)
+
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)
